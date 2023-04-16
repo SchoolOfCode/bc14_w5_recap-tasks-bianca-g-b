@@ -1,0 +1,45 @@
+.authorArea {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  flex-direction: row;
+}
+
+.initials {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #ea9898;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 15px;
+}
+
+.postText {
+    margin-top: 0;
+    margin-left: 25px;
+    font-size: 25px;
+    font-style: italic;
+
+}
+
+.authorName {
+    color: #ea9898
+}
+
+.comment {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    border-radius: 15px;
+    width: 40%;
+    height: 50%;
+    background-color: rgb(251, 228, 233);;
+    border-color: rgb(255, 153, 168);
+    border-style: solid;
+}
