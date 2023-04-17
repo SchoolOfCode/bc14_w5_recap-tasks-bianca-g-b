@@ -12,25 +12,35 @@ function CommentForm(props) {
   const handleContent = (event) => {
     setContent(event.target.value);
   }
+    function handleChange(event) {
+      const {name, value} = event.target;
+      if (name === "author") {
+        handleAuthor(value);
+      } else {
+        handleContent(value);
+      }
+    }
+
+
   return (
-    <form >
-      <label htmlFor="author">Author</label>
+    <form onSubmit={props.onSubmit}>
+      <label>Author</label>
       <input
         type="text"
         id="author"
         name="author"
         value={props.authorTest}
-        onChange={props.onChange}
+        onChange={props.onAuthorChange}
         />
-        <label htmlFor="content">Content</label>
+        <label>Content</label>
         <input
           type="text"
           id="content"
           name="content"
           value={props.contentTest}
-          onChange={props.onChange}
+          onChange={props.onContentChange}
           />
-          <button type="submit" onSubmit={props.handleContent}>Submit</button>
+          <button type="submit">Submit</button>
           </form>
           );
 }

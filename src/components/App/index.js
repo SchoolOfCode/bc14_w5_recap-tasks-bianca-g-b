@@ -16,7 +16,7 @@ function App() {
   // write onSubmit function to take in author, content and id and add the new object to the comments array
   // set comments array to be updated with new comment
   const [author, setAuthor] = useState("Robot GPT");
-  const [content, setContent] = useState("Thank you for your comment");
+  const [content, setContent] = useState("");
   const [commentsArray, setCommentsArray] = useState([{
     id: "C_eSSKbq2lWfs-TaylQI2",
     author: "Earl Grand",
@@ -36,7 +36,8 @@ function App() {
     setContent(event.target.value);
   }
 
-  function handleSubmit() {
+  function handleSubmit(event) {
+    event.preventDefault();
     const newComment = {
       // get random id 
       id: Math.floor(Math.random() * 100000000),
@@ -44,9 +45,8 @@ function App() {
       content: content
     }
     // add new comment to comments array
-    console.log(newComment)
     setCommentsArray([...commentsArray, newComment]);
-    
+    setContent("");
   }
 console.log(commentsArray);
 
@@ -60,18 +60,26 @@ console.log(commentsArray);
       author="Chat GPT"
       content="Great post!"
     />
-    <CommentList 
-      comments={commentsArray}
-      id= {Math.floor(Math.random() * 100000000)}
-      text={content}
-      author= {author}
-      content= {content}
-      function= {initials}
-    />
     <CommentForm 
-    authorTest={commentsArray.author}
-    contentTest={commentsArray.content}
-    handleContent={handleSubmit}/>
+    onSubmit={handleSubmit}
+    onAuthorChange={handleAuthor}
+    onContentChange={handleContent}
+    authorTest={author}
+    contentTest={content}
+    />
+    {console.log(commentsArray)}
+    {commentsArray.map((comment) => {
+      return (
+        
+    <CommentList 
+      key= {comment.id}
+      id= {comment.id}
+      text={comment.content}
+      author= {comment.author}
+      content= {comment.content}
+      initials= {initials(comment.author)}
+    />
+    )})}
 
   </div>
   )
