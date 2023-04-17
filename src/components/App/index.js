@@ -60,13 +60,7 @@ console.log(commentsArray);
       author="Chat GPT"
       content="Great post!"
     />
-    {/* <CommentForm 
-    onSubmit={handleSubmit}
-    onAuthorChange={handleAuthor}
-    onContentChange={handleContent}
-    authorTest={author}
-    contentTest={content}
-    /> */}
+    
     {console.log(commentsArray)}
     {commentsArray.map((comment) => {
       return (
