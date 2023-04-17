@@ -1,5 +1,6 @@
 import {useState} from "react";
 import CommentList from "../CommentList";
+import "./index.css";
 
 function CommentForm(props) {
   const [author, setAuthor] = useState("");
@@ -24,7 +25,7 @@ function CommentForm(props) {
 
   return (
     <form onSubmit={props.onSubmit}>
-      <label>Author</label>
+      <labelfor>Author</labelfor>
       <input
         type="text"
         id="author"
